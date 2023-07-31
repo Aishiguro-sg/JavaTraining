@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html th:fragment="layout(title, content, usefunction)" lang="ja">
+<html th:fragment="layout(title, content, usefunction)" lang="ja" xmlns:th="http//www.thymelesf.org">
 
 <head th:replace="~{fragments/header :: common_header(${title})}"> </head>
 
@@ -40,12 +40,14 @@
         </div>
         <!--この辺>/* ナビバー - ログアウトボタン */-->
 
-        <div class="d-lg-flex col-lg-3 justify-content-lg-end"> <!--  ログアウト -->
+        <!--  ログアウト -->
+        <div class="d-lg-flex col-lg-25 justify-content-lg-end">
           <ul class="navbar-nav"> <!--   ナビバー  -->
-            li class="nav-item">
-            <a class="nav-link" th:classappend="|${usefunction == 'logout' ? 'active' : ''}|" href="#" th:href="@{/}">
-              ログアウト <!--   表記    -->
-            </a>
+            <li class="nav-item">
+              <a class="nav-link" th:classappend="|${usefunction == 'logout' ? 'active' : ''}|" href="#"
+                th:href="@{/logout}">
+                ログアウト <!--   表記    -->
+              </a>
             </li>
         </div>
 
