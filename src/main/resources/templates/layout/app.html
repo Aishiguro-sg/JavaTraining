@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html th:fragment="layout(title, content, usefunction)" lang="ja">
+
 <head th:replace="~{fragments/header :: common_header(${title})}"> </head>
+
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top flex-md-nowrap p-0 shadow">
     <div class="container-fluid">
@@ -36,9 +38,18 @@
             </li>
           </ul>
         </div>
-        <!--/* ナビバー - ログアウトボタン */-->
-        <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+        <!--この辺>/* ナビバー - ログアウトボタン */-->
+
+        <div class="d-lg-flex col-lg-3 justify-content-lg-end"> <!--  ログアウト -->
+          <ul class="navbar-nav"> <!--   ナビバー  -->
+            li class="nav-item">
+            <a class="nav-link" th:classappend="|${usefunction == 'logout' ? 'active' : ''}|" href="#" th:href="@{/}">
+              ログアウト <!--   表記    -->
+            </a>
+            </li>
         </div>
+
+        <!--この辺>/* ナビバー - ログアウトボタン */-->
       </div>
     </div>
   </nav>
@@ -60,4 +71,5 @@
     </div>
   </div>
 </body>
+
 </html>
