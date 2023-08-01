@@ -46,7 +46,10 @@
             <li class="nav-item">
               <a class="nav-link" th:classappend="|${usefunction == 'logout' ? 'active' : ''}|" href="#"
                 th:href="@{/logout}">
-                ログアウト <!--   表記    -->
+                <!--   表記    -->
+                <div th:if="${#authorization.expression('isAuthenticated()')}">
+                  <button class="logout-button">ログアウト</button>
+
               </a>
             </li>
         </div>
