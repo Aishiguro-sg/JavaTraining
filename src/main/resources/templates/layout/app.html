@@ -47,10 +47,14 @@
               <a class="nav-link" href="#" th:href="@{/logout}">
                 <!--   表記    -->
                 <div th:if="${#authorization.expression('isAuthenticated()')}">
-                  <button class="logout-button">ログアウト</button>
-                  <!--   非表示/表示    -->
+                  <button class="logout-button">
+                    ログアウト
+                  </button>
+                </div>
+                <!--   非表示/表示    -->
               </a>
             </li>
+          </ul>
         </div>
 
         <!--この辺>/* ナビバー - ログアウトボタン */-->
@@ -62,7 +66,8 @@
     <div class="row">
       <header class="col-md-12 pt-md-4">
         <!--/*  機能名表示 */-->
-        <h1 class="display-6" th:text="${title}"></h1>
+        <h1 class="display-6" th:text="${title}">
+        </h1>
       </header>
       <main class="col-md-12 col-lg-12 pt-4">
         <div th:replace="${content}">
