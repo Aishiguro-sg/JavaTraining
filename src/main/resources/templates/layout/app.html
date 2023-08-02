@@ -44,12 +44,11 @@
         <div class="d-lg-flex col-lg-25 justify-content-lg-end">
           <ul class="navbar-nav"> <!--   ナビバー  -->
             <li class="nav-item">
-              <a class="nav-link" th:classappend="|${usefunction == 'logout' ? 'active' : ''}|" href="#"
-                th:href="@{/logout}">
+              <a class="nav-link" href="#" th:href="@{/logout}">
                 <!--   表記    -->
                 <div th:if="${#authorization.expression('isAuthenticated()')}">
                   <button class="logout-button">ログアウト</button>
-
+                  <!--   非表示/表示    -->
               </a>
             </li>
         </div>
