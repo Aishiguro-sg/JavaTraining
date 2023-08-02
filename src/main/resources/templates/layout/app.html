@@ -47,11 +47,9 @@
               <a class="nav-link" href="#" th:href="@{/logout}">
                 <!--   表記    -->
                 <div th:if="${#authorization.expression('isAuthenticated()')}">
-                  <button class="logout-button">
-                    ログアウト
-                  </button>
+                  <!--   非表示/表示    -->
+                  ログアウト
                 </div>
-                <!--   非表示/表示    -->
               </a>
             </li>
           </ul>
