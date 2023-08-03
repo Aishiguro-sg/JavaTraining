@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.s_giken.training.webapp.model.Member;
+//import org.springframework.data.jpa.repository.Query;
 
 public interface MemberRepository extends JpaRepository<Member, Integer> {
     // SprintBootでは、予め用意されているのリポジトリアクセス用のメソッド以外のメソッドを
