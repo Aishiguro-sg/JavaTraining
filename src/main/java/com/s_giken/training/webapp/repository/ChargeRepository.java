@@ -8,5 +8,5 @@ import com.s_giken.training.webapp.model.Charge;
 //import org.springframework.data.jpa.repository.Query;
 
 public interface ChargeRepository extends JpaRepository<Charge, Integer> {
-    public List<Charge> findByChargeLike(String charge);
+    public List<Charge> findByChargeLike(String name);
 }

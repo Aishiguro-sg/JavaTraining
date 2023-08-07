@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ChargeSearchCondition {
-    private String charge;
-    // 氏名検索用メンバ変数を用意
+    private String name;
+
+    // 料金名検索用メンバ変数を用意
 }
