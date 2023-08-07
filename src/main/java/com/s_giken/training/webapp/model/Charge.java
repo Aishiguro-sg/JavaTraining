@@ -41,7 +41,7 @@ public class Charge {
 
     @Column(name = "amount") // 料金
     @NotNull
-    private String amount;
+    private int amount;
 
     @Column(name = "start_date") // 適用開始日
     @DateTimeFormat(pattern = "yyyy-MM-dd")

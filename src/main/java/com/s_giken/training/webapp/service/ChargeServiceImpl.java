@@ -29,7 +29,7 @@ public class ChargeServiceImpl implements ChargeService {
 
     @Override
     public List<Charge> findByConditions(ChargeSearchCondition chargeSearchCondition) {
-        return chargeRepository.findByChargeLike(
+        return chargeRepository.findByNameLike(
                 "%" + chargeSearchCondition.getName() + "%");
     }
 
