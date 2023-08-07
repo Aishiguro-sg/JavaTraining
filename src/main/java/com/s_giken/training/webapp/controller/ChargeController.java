@@ -10,9 +10,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.s_giken.training.webapp.exception.NotFoundException;
 import com.s_giken.training.webapp.model.Charge;
 import com.s_giken.training.webapp.model.ChargeSearchCondition;
-import com.s_giken.training.webapp.model.Charge;
-import com.s_giken.training.webapp.model.ChargeSearchCondition;
-import com.s_giken.training.webapp.service.ChargeService;
 import com.s_giken.training.webapp.service.ChargeService;
 
 import org.springframework.stereotype.Controller;

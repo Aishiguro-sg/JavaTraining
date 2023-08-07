@@ -35,13 +35,13 @@ public class Charge {
     @NotBlank
     private String name;
 
-    @Column(name = "char_method") // 種別
+    @Column(name = "type") // 種別
     @NotNull
-    private int charMethod;
+    private int type;
 
-    @Column(name = "charge") // 料金
+    @Column(name = "amount") // 料金
     @NotNull
-    private String charge;
+    private String amount;
 
     @Column(name = "start_date") // 適用開始日
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -51,6 +51,10 @@ public class Charge {
     @Column(name = "end_date") // 適用終了日
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
+
+    // 確定
+
+    // キャンセル
 
     @CreatedDate
     private Timestamp createdDate;

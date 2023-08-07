@@ -34,18 +34,6 @@ public class MemberServiceImpl implements MemberService {
                 "%" + memberSearchCondition.getName() + "%");
     }
 
-    /*
-     * 料金情報検索画面
-     * 
-     * @Override
-     * public List<Member> findByConditions(MemberSearchCondition
-     * memberSearchCondition) {
-     * return memberRepository.findByChargeLike(
-     * "%" + memberSearchCondition.getCharge() + "%");
-     * }
-     * 
-     */
-
     @Override
     public void save(Member member) {
         memberRepository.save(member);

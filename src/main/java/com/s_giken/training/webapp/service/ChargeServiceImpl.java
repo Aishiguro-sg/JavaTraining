@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.s_giken.training.webapp.model.Charge;
 import com.s_giken.training.webapp.model.ChargeSearchCondition;
-import com.s_giken.training.webapp.model.ChargeSearchCondition;
-import com.s_giken.training.webapp.repository.ChargeRepository;
 import com.s_giken.training.webapp.repository.ChargeRepository;
 
 @Service
