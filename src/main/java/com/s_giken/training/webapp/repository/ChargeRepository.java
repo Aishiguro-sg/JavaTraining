@@ -1,6 +1,6 @@
 package com.s_giken.training.webapp.repository;
 
-import java.util.List;
+//import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
