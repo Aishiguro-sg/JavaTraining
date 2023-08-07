@@ -21,4 +21,6 @@ public interface MemberRepository extends JpaRepository<Member, Integer> {
     // void delete(T entity);
     // boolean exists(ID primaryKey);
     public List<Member> findByMailLikeAndNameLike(String meil, String name);
+
+    // public List<Member> findByChargeLike(String charge);
 }
