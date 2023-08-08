@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ChargeSearchCondition {
     private String name;
-
+    private String charge;
     // 料金名検索用メンバ変数を用意
 }
