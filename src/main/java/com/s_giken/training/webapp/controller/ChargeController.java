@@ -54,7 +54,7 @@ public class ChargeController {
         return "charge_edit";
     }
 
-    @GetMapping("/add")
+    @GetMapping("/addAccount")
     public String addCharge(Model model) {
         var charge = new Charge();
         model.addAttribute("charge", charge);
