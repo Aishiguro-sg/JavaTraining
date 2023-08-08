@@ -35,30 +35,22 @@ public class Charge {
     @NotBlank
     private String name;
 
-    @Column(name = "type") // 種別
+    @Column(name = "charge") // 月額料金
     @NotNull
-    private int type;
+    private int charge;
 
-    @Column(name = "amount") // 料金
-    @NotNull
-    private int amount;
-
-    @Column(name = "start_date") // 適用開始日
+    @Column(name = "start_date") // 運用開始日
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull
     private Date startDate;
 
-    @Column(name = "end_date") // 適用終了日
+    @Column(name = "end_date") // 運用終了日
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
 
-    // 確定
-
-    // キャンセル
-
     @CreatedDate
-    private Timestamp createdDate;
+    private Timestamp createdDate; // レコード作成日
 
     @LastModifiedDate
-    private Timestamp updatedDate;
+    private Timestamp updatedDate; // レコード更新日
 }

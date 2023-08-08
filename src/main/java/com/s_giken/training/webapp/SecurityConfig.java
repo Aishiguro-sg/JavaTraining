@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -23,6 +24,7 @@ public class SecurityConfig {
     public SecurityFilterChain webSecurityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable()) // CSRF対策を無効化
+                .headers(headers -> headers.frameOptions(frame -> frame.disable()))
                 .formLogin((form) -> form
                         .defaultSuccessUrl("/")
                         .loginProcessingUrl("/login")
@@ -32,6 +34,7 @@ public class SecurityConfig {
                 .logout((logout) -> logout
                         .logoutSuccessUrl("/"))
                 .authorizeHttpRequests((authorize) -> authorize
+                        .requestMatchers(AntPathRequestMatcher.antMatcher("/h-console/**")).permitAll()
                         .anyRequest().authenticated());
 
         return http.build();
