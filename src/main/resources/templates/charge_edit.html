@@ -7,57 +7,46 @@
     <div th:if="!${#strings.isEmpty(message)}" class="alert alert-success">
         <span th:text="${message}"></span>
     </div>
-
     <form th:action="@{/charge/save}" th:object="${charge}" method="POST">
         <input type="hidden" th:field="*{chargeId}">
-
         <!--内容-->
-
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label" for="name">料金名</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" th:field="*{name}" maxlength="16">
             </div>
         </div>
-
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label" for="charge">月額料金</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" th:field="*{charge}">
             </div>
         </div>
-
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label" for="startDate">運用開始日</label>
             <div class="col-sm-10">
                 <input type="date" class="form-control" th:field="*{startDate}" name="joining_date">
             </div>
         </div>
-
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label" for="endDate">運用終了日</label>
             <div class="col-sm-10">
                 <input type="date" class="form-control" th:field="*{endDate}">
             </div>
         </div>
-
-
         <!--/*-->
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">適用料金</label>
             <div class="col-sm-10">
                 <input type="checkbox" name="ryokin" value="00001" checked>基本料金</label>
-
                 <div>
                     <input type="checkbox" name="ryokin" value="00002"> オプション料金A
                     <input type="date" name="ryokin_00002_start" id="ryokin_00002_start"> ～
                     <input type="date" name="ryokin_00002_end" id="ryokin_00002_end">
                 </div>
-
             </div>
         </div>
         <!--*/-->
-
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label"></label>
             <div class="col-sm-10">
