@@ -65,12 +65,13 @@ public class ChargeController {
     public String saveCharge(
             @Validated Charge charge,
             BindingResult bindingResult,
-            // 保存通知
+            // 通知
             // エラーが出た時
             RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             return "/charge_edit";
         }
+        // 保存通知
         chargeService.save(charge);
         redirectAttributes.addFlashAttribute("message", "保存しました。");
         return "redirect:/charge/edit/" + charge.getChargeId();
@@ -79,9 +80,9 @@ public class ChargeController {
     @GetMapping("/delete/{id}")
     public String deleteCharge(
             @PathVariable int id,
-            // 削除通知
+            // 通知
             RedirectAttributes redirectAttributes) {
-
+        // 削除通知
         chargeService.deleteById(id);
         redirectAttributes.addFlashAttribute("message", "削除しました。");
         return "redirect:/charge/search";
