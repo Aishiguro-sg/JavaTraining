@@ -60,6 +60,7 @@
                 <select class="form-control" th:field="*{paymentMethod}">
                     <option value="1">クレジット</option>
                     <option value="2">銀行振込</option>
+                    <option value="3">　</option>
                 </select>
                 <!--個別エラーメッセージ表示-->
                 <span class="text-danger" th:if="${#fields.hasErrors('paymentMethod')}"

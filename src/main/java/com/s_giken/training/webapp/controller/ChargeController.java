@@ -42,7 +42,7 @@ public class ChargeController {
         return "charge_search_result";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/edit/{id}") // 編集ID
     public String editCharge(
             @PathVariable int id,
             Model model) {
@@ -51,14 +51,14 @@ public class ChargeController {
             throw new NotFoundException("");
         }
         model.addAttribute("charge", charge);
-        return "charge_edit";
+        return "charge_edit";// 編集用
     }
 
-    @GetMapping("/add")
+    @GetMapping("/add") // 追加
     public String addCharge(Model model) {
         var charge = new Charge();
         model.addAttribute("charge", charge);
-        return "charge_edit";
+        return "charge_edit";// 編集用
     }
 
     @PostMapping("/save")
@@ -66,12 +66,12 @@ public class ChargeController {
             @Validated Charge charge,
             BindingResult bindingResult,
             // 通知
-            // エラーが出た時
+            // エラーが出た時 編集用
             RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             return "/charge_edit";
         }
-        // 保存通知
+        // 保存通知 編集モード
         chargeService.save(charge);
         redirectAttributes.addFlashAttribute("message", "保存しました。");
         return "redirect:/charge/edit/" + charge.getChargeId();

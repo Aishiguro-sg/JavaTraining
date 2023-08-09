@@ -31,12 +31,12 @@ public class Charge {
     private int chargeId;
 
     @Column(name = "name") // 料金名
-    @NotNull
     @NotBlank
+    @NotNull
     private String name;
 
     @Column(name = "charge") // 月額料金
-    @NotNull
+    @NotNull(message = "料金を入力してください")
     private int charge;
 
     @Column(name = "start_date") // 運用開始日

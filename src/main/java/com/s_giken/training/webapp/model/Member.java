@@ -41,7 +41,8 @@ public class Member {
     private String name;
 
     @Column(name = "address") // 対応する列名
-    @NotNull // null不可
+    @NotNull
+    @NotBlank // null不可
     private String address;
 
     @Column(name = "start_date") // 対応する列名
