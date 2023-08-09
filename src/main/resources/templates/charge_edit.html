@@ -16,14 +16,9 @@
             <div class="col-sm-10">
 
                 <!--エラー用CSSの追加-->
-                <div class="form-group" th:classappend="${#fields.hasErrors('name')} ? 'has-error'">
-                    <input type="text" class="form-control" th:field="*{name}" maxlength="16">
-                </div>
+                <input type="text" class="form-control" th:field="*{name}" maxlength="16">
                 <!--個別エラーメッセージ表示-->
-                <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
-                    料金名
-                </span>
-
+                <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
             </div>
 
         </div>

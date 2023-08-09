@@ -20,60 +20,60 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
-    /**
-     * Spring Securityの設定
-     * ルート以下のアクセスは認証が必要
-     * ログインページはカスタムの /login
-     * 
-     * @param http HttpSecurityオブジェクト
-     * @return SecurityFilterChainオブジェクト
-     * @throws Exception 例外全般
-     */
-    @Bean
-    public SecurityFilterChain webSecurityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf(csrf -> csrf.disable()) // CSRF対策を無効化
-                .headers(headers -> headers.frameOptions(frame -> frame.disable()))
-                .formLogin((form) -> form
-                        .defaultSuccessUrl("/")
-                        .loginProcessingUrl("/login")
-                        .loginPage("/login")
-                        .failureUrl("/login?error")
-                        .permitAll())
-                .logout((logout) -> logout
-                        .logoutSuccessUrl("/"))
-                .authorizeHttpRequests((authorize) -> authorize
-<<<<<<< HEAD
-                        .requestMatchers(AntPathRequestMatcher.antMatcher("/h-console/**")).permitAll()
-=======
-                        .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
-                        .anyRequest().authenticated());
+        /**
+         * Spring Securityの設定
+         * ルート以下のアクセスは認証が必要
+         * ログインページはカスタムの /login
+         * 
+         * @param http HttpSecurityオブジェクト
+         * @return SecurityFilterChainオブジェクト
+         * @throws Exception 例外全般
+         */
+        @Bean
+        public SecurityFilterChain webSecurityFilterChain(HttpSecurity http) throws Exception {
+                http
+                                .csrf(csrf -> csrf.disable()) // CSRF対策を無効化
+                                .headers(headers -> headers.frameOptions().disable())
+                                .formLogin((form) -> form
+                                                .defaultSuccessUrl("/")
+                                                .loginProcessingUrl("/login")
+                                                .loginPage("/login")
+                                                .failureUrl("/login?error")
+                                                .permitAll())
+                                .logout((logout) -> logout
+                                                .logoutSuccessUrl("/"))
+                                .authorizeHttpRequests((authorize) -> authorize
+                                                .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**"))
+                                                .permitAll()
+                                                .anyRequest().authenticated());
+                return http.build();
+        }
 
-    /**
-     * ログインユーザー情報を設定する
-     * ユーザ名user、パスワードpasswordでログインできるようになる。
-     * ※パスワードはハッシュ化せずにそのまま設定
-     * 
-     * @return ログインユーザー情報
-     */
-    @Bean
-    public UserDetailsService users() {
-        var user = User
-                .builder()
-                .username("user")
-                .password("$2a$10$Jjf89PMWEuE1JOFF57rw2.Ny64pJbWTnvJB5PBLSbP27R6.nKOC1e") // password
-                .roles("USER")
-                .build();
-        return new InMemoryUserDetailsManager(user);
-    }
+        /**
+         * ログインユーザー情報を設定する
+         * ユーザ名user、パスワードpasswordでログインできるようになる。
+         * ※パスワードはハッシュ化せずにそのまま設定
+         * 
+         * @return ログインユーザー情報
+         */
+        @Bean
+        public UserDetailsService users() {
+                var user = User
+                                .builder()
+                                .username("user")
+                                .password("$2a$10$Jjf89PMWEuE1JOFF57rw2.Ny64pJbWTnvJB5PBLSbP27R6.nKOC1e") // password
+                                .roles("USER")
+                                .build();
+                return new InMemoryUserDetailsManager(user);
+        }
 
-    /**
-     * パスワードをBcryptでハッシュ化するオブジェクトを生成する
-     * 
-     * @return パスワードをハッシュ化するエンコーダーのオブジェクト
-     */
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+        /**
+         * パスワードをBcryptでハッシュ化するオブジェクトを生成する
+         * 
+         * @return パスワードをハッシュ化するエンコーダーのオブジェクト
+         */
+        @Bean
+        public PasswordEncoder passwordEncoder() {
+                return new BCryptPasswordEncoder();
+        }
 }
