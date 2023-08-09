@@ -10,24 +10,38 @@
     <form th:action="@{/charge/save}" th:object="${charge}" method="POST">
         <input type="hidden" th:field="*{chargeId}">
         <!--内容-->
+        <!--料金名-->
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label" for="name">料金名</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" th:field="*{name}" maxlength="16">
+
+                <!--エラー用CSSの追加-->
+                <div class="form-group" th:classappend="${#fields.hasErrors('name')} ? 'has-error'">
+                    <input type="text" class="form-control" th:field="*{name}" maxlength="16">
+                </div>
+                <!--個別エラーメッセージ表示-->
+                <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+                    name error
+                </span>
+
             </div>
+
         </div>
+        <!--月額料金-->
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label" for="charge">月額料金</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" th:field="*{charge}">
             </div>
         </div>
+        <!--運用開始日-->
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label" for="startDate">運用開始日</label>
             <div class="col-sm-10">
                 <input type="date" class="form-control" th:field="*{startDate}" name="joining_date">
             </div>
         </div>
+        <!--運用終了日-->
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label" for="endDate">運用終了日</label>
             <div class="col-sm-10">
