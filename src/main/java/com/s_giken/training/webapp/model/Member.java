@@ -19,47 +19,47 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Entity // エンティティクラスであることを示す
 @Table(name = "T_MEMBER") // 対応するデータベーステーブル名
 @Data // メンバー変数に対するゲッター・セッターを自動生成
 @NoArgsConstructor // 引数のないコンストラクタを自動生成
 @AllArgsConstructor // 全てのメンバ変数に対する引数を持つコンストラクタを自動生成
 public class Member {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "member_id")
+    @Id // 主キーを設定
+    @GeneratedValue(strategy = GenerationType.AUTO) // 主キーの採番方法を指定
+    @Column(name = "member_id") // 対応する列名
     private int memberId;
 
-    @Column(name = "mail")
-    @NotNull
-    @NotBlank
+    @Column(name = "mail") // 対応する列名
+    @NotNull // null不可
+    @NotBlank // 空文字不可
     private String mail;
 
-    @Column(name = "name")
-    @NotNull
-    @NotBlank
+    @Column(name = "name") // 対応する列名
+    @NotNull // null不可
+    @NotBlank // 空文字不可
     private String name;
 
-    @Column(name = "address")
-    @NotNull
+    @Column(name = "address") // 対応する列名
+    @NotNull // null不可
     private String address;
 
-    @Column(name = "start_date")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @NotNull
+    @Column(name = "start_date") // 対応する列名
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // 日付のフォーマットを指定
+    @NotNull // null不可
     private Date startDate;
 
-    @Column(name = "end_date")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "end_date") // 対応する列名
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // 日付のフォーマットを指定
     private Date endDate;
 
-    @Column(name = "payment_method")
-    @NotNull
+    @Column(name = "payment_method") // 対応する列名
+    @NotNull // null不可
     private int paymentMethod;
 
-    @CreatedDate
+    @CreatedDate // 作成日時を自動設定
     private Timestamp createdDate;
 
-    @LastModifiedDate
+    @LastModifiedDate // 更新日時を自動設定
     private Timestamp updatedDate;
 }

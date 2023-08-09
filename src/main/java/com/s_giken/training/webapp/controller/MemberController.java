@@ -17,15 +17,29 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 
-@Controller
-@RequestMapping("/member")
+/**
+ * 加入者管理機能のコントローラークラス
+ */
+@Controller // コントローラークラスであることを示す
+@RequestMapping("/member") // リクエストパスを指定
 public class MemberController {
 	private final MemberService memberService;
 
-	public MemberController(MemberService memberService) { // memberServcieには、MemberServiceImplのインスタンスが渡される
+	/**
+	 * 加入者管理機能のコントローラークラスのコンストラクタ
+	 * 
+	 * @param memberService 加入者管理機能のサービスクラス(SpringのDIコンテナから渡される)
+	 */
+	public MemberController(MemberService memberService) {
 		this.memberService = memberService;
 	}
 
+	/**
+	 * 加入者検索条件画面を表示する
+	 * 
+	 * @param model Thymeleafに渡すデータ
+	 * @return 加入者検索条件画面のテンプレート名
+	 */
 	@GetMapping("/search")
 	public String showSearchCondition(Model model) {
 		var memberSearchCondition = new MemberSearchCondition();
@@ -33,6 +47,13 @@ public class MemberController {
 		return "member_search_condition";
 	}
 
+	/**
+	 * 加入者検索結果画面を表示する
+	 * 
+	 * @param memberSearchCodition 加入者検索条件画面で入力された検索条件
+	 * @param model                Thymeleafに渡すデータ
+	 * @return 加入者検索結果画面のテンプレート名
+	 */
 	@PostMapping("/search")
 	public String searchAndListing(
 			@ModelAttribute("memberSearchCondition") MemberSearchCondition memberSearchCodition,
@@ -42,6 +63,13 @@ public class MemberController {
 		return "member_search_result";
 	}
 
+	/**
+	 * 加入者編集画面を表示する
+	 * 
+	 * @param id    URLに指定された加入者ID
+	 * @param model Thymeleafに渡すデータ
+	 * @return 加入者編集画面のテンプレート名
+	 */
 	@GetMapping("/edit/{id}")
 	public String editMember(
 			@PathVariable int id,
@@ -54,6 +82,12 @@ public class MemberController {
 		return "member_edit";
 	}
 
+	/**
+	 * 加入者追加画面を表示する
+	 * 
+	 * @param model Thymeleafに渡すデータ
+	 * @return 加入者追加画面のテンプレート名
+	 */
 	@GetMapping("/add")
 	public String addMember(Model model) {
 		var member = new Member();
@@ -61,6 +95,14 @@ public class MemberController {
 		return "member_edit";
 	}
 
+	/**
+	 * 加入者情報を保存する
+	 * 
+	 * @param member             加入者編集画面で入力された加入者情報
+	 * @param bindingResult      入力チェック結果
+	 * @param redirectAttributes リダイレクト先の画面に渡すデータ
+	 * @return リダイレクト先のURL
+	 */
 	@PostMapping("/save")
 	public String saveMember(
 			@Validated Member member,
@@ -74,6 +116,13 @@ public class MemberController {
 		return "redirect:/member/edit/" + member.getMemberId();
 	}
 
+	/**
+	 * 加入者情報を削除する
+	 * 
+	 * @param id                 URLに指定された加入者ID
+	 * @param redirectAttributes リダイレクト先の画面に渡すデータ
+	 * @return リダイレクト先のURL
+	 */
 	@GetMapping("/delete/{id}")
 	public String deleteMember(
 			@PathVariable int id,
