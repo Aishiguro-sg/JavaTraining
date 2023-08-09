@@ -69,6 +69,7 @@ public class ChargeController {
         if (bindingResult.hasErrors()) {
             return "charge_edit";
         }
+        // 保存通知
         chargeService.save(charge);
         redirectAttributes.addFlashAttribute("message", "保存しました。");
         return "redirect:/charge/edit/" + charge.getChargeId();
@@ -78,6 +79,7 @@ public class ChargeController {
     public String deleteCharge(
             @PathVariable int id,
             RedirectAttributes redirectAttributes) {
+        // 削除通知
         chargeService.deleteById(id);
         redirectAttributes.addFlashAttribute("message", "削除しました。");
         return "redirect:/charge/search";
