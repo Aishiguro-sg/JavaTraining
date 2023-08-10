@@ -14,7 +14,7 @@
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label" for="name">料金名</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" th:field="*{name}" maxlength="16">
+                <input type="text" class="form-control" th:field="*{name}" maxlength="64">
                 <!--個別エラーメッセージ表示-->
                 <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
             </div>
@@ -24,7 +24,7 @@
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label" for="charge">月額料金</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" th:field="*{charge}">
+                <input type="text" class="form-control" th:field="*{charge}" maxlength="9">
                 <!--個別エラーメッセージ表示-->
                 <span class="text-danger" th:if="${#fields.hasErrors('charge')}" th:errors="*{charge}"></span>
             </div>
