@@ -43,6 +43,8 @@
           </ul>
         </div>
         <!--この辺>/* ナビバー - ログアウトボタン */-->
+        <img src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ujavbmbe29vif195mcoz.png" alt="ピクミン"
+          title="ぴくみん" width="100">
         <!--  ログアウト -->
         <div class="d-lg-flex col-lg-25 justify-content-lg-end">
           <ul class="navbar-nav"> <!--   ナビバー  -->
@@ -65,9 +67,21 @@
     <div class="row">
       <header class="col-md-12 pt-md-4">
         <!--/*  機能名表示 */-->
-        <h1 class="display-6" th:text="${title}">
-        </h1>
+        <table>
+          <tr>
+            <td>
+              <h1 class="display-6" th:text="${title}">
+              </h1>
+            </td>
+            <td>&nbsp;</td>
+            <td>
+              <img src="https://i.pinimg.com/originals/70/b7/90/70b790c030f9e83e8142b5b92d24e00c.jpg" alt="ピクミン"
+                title="ぴくみん" width="70">
+            </td>
+          </tr>
+        </table>
       </header>
+
       <main class="col-md-12 col-lg-12 pt-4">
         <div th:replace="${content}">
           <!--/* 
