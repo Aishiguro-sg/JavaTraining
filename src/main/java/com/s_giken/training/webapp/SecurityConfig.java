@@ -21,8 +21,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableMethodSecurity
 public class SecurityConfig {
         /**
-         * Spring Securityの設定 ルート以下のアクセスは認証が必要 ログインページはカスタムの /login
-         * 
+         * Spring Securityの設定
+         *
          * @param http HttpSecurityオブジェクト
          * @return SecurityFilterChainオブジェクト
          * @throws Exception 例外全般
@@ -31,7 +31,8 @@ public class SecurityConfig {
         public SecurityFilterChain webSecurityFilterChain(HttpSecurity http) throws Exception {
                 http
                                 .csrf(csrf -> csrf.disable()) // CSRF対策を無効化
-                                .headers(headers -> headers.frameOptions().disable())
+                                .headers((header) -> header
+                                                .frameOptions((frame) -> frame.disable()))
                                 .formLogin((form) -> form
                                                 .defaultSuccessUrl("/")
                                                 .loginProcessingUrl("/login")
@@ -49,8 +50,12 @@ public class SecurityConfig {
         }
 
         /**
-         * ログインユーザー情報を設定する ユーザ名user、パスワードpasswordでログインできるようになる。 ※パスワードはハッシュ化せずにそのまま設定
-         * 
+         * ログインユーザー情報を設定する
+         *
+         * ユーザ名user、パスワードpasswordでログインできるようになる。
+         *
+         * ※パスワードはハッシュ化せずにそのまま設定
+         *
          * @return ログインユーザー情報
          */
         @Bean
@@ -66,7 +71,7 @@ public class SecurityConfig {
 
         /**
          * パスワードをBcryptでハッシュ化するオブジェクトを生成する
-         * 
+         *
          * @return パスワードをハッシュ化するエンコーダーのオブジェクト
          */
         @Bean
