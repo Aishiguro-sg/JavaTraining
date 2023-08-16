@@ -21,9 +21,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableMethodSecurity
 public class SecurityConfig {
         /**
-         * Spring Securityの設定
-         * ルート以下のアクセスは認証が必要
-         * ログインページはカスタムの /login
+         * Spring Securityの設定 ルート以下のアクセスは認証が必要 ログインページはカスタムの /login
          * 
          * @param http HttpSecurityオブジェクト
          * @return SecurityFilterChainオブジェクト
@@ -43,16 +41,15 @@ public class SecurityConfig {
                                 .logout((logout) -> logout
                                                 .logoutSuccessUrl("/"))
                                 .authorizeHttpRequests((authorize) -> authorize
-                                                .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**"))
+                                                .requestMatchers(AntPathRequestMatcher
+                                                                .antMatcher("/h2-console/**"))
                                                 .permitAll()
                                                 .anyRequest().authenticated());
                 return http.build();
         }
 
         /**
-         * ログインユーザー情報を設定する
-         * ユーザ名user、パスワードpasswordでログインできるようになる。
-         * ※パスワードはハッシュ化せずにそのまま設定
+         * ログインユーザー情報を設定する ユーザ名user、パスワードpasswordでログインできるようになる。 ※パスワードはハッシュ化せずにそのまま設定
          * 
          * @return ログインユーザー情報
          */
