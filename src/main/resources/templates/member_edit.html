@@ -82,12 +82,28 @@
         <!--*/-->
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-10">
+            <div class="col-sm">
+
                 <button type="submit" class="btn btn-primary">決定</button>
                 <a class="btn btn-link" th:href="@{/member/search}">キャンセル</a>
             </div>
+            <!--*編集画面の削除場所　　　　　/-->
+            <!--<div class="bt_deleteForm">/-->
+            <div class="col-sm-auto">
+                <a onclick="delete confirm('削除しますか?')">
+                    <button right;href="#" input type="button" style=background:rgb(241,88,88);color:rgb(255,255,255);
+                        value="削除" class="btn btn-sm" onclick="deleteForm()">削除
+                    </button>
+                </a>
+            </div>
         </div>
-    </form>
+</div>
+</div>
+<!--*　　　　　　　　　　　　　　/-->
+
+</div>
+</div>
+</form>
 </div>
 
 </html>

@@ -65,6 +65,14 @@
             <div class="col-sm-10">
                 <input class="btn btn-primary" type="submit" value="決定" />
                 <a class="btn btn-link" th:href="@{/charge/search}">キャンセル</a>
+                <!--*編集画面の削除場所さわってます/-->
+
+                <a href="http://localhost:8080/member/search" onclick="return confirm('削除しますか?')">
+                    <button href="#" input type="button" style=background:rgb(241,88,88);color:rgb(255,255,255);
+                        value=削除 id="coladd" class="btn btn-sm" onclick="coldel (this)">削除</button>
+                </a>
+
+                <!--*さわってます/-->
             </div>
         </div>
     </form>

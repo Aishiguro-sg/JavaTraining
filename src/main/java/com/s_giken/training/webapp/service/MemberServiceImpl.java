@@ -59,6 +59,9 @@ public class MemberServiceImpl implements MemberService {
                 "%" + memberSearchCondition.getName() + "%");
     }
 
+    // @Override
+    // public void delete(Member entity);
+
     /**
      * 加入者を登録する
      *
@@ -79,5 +82,6 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void deleteById(int memberId) {
         memberRepository.deleteById(memberId);
+
     }
 }

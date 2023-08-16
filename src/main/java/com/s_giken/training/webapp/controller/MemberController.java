@@ -127,8 +127,10 @@ public class MemberController {
 	public String deleteMember(
 			@PathVariable int id,
 			RedirectAttributes redirectAttributes) {
+
 		memberService.deleteById(id);
 		redirectAttributes.addFlashAttribute("message", "削除しました。");
 		return "redirect:/member/search";
 	}
+
 }
