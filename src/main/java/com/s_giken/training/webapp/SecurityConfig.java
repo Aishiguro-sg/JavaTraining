@@ -21,8 +21,12 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableMethodSecurity
 public class SecurityConfig {
         /**
-         * Spring Securityの設定
+         * <<<<<<< HEAD Spring Securityの設定
          *
+         * ======= Spring Securityの設定 ルート以下のアクセスは認証が必要 ログインページはカスタムの /login
+         * 
+         * >>>>>>> d00836fd51a0a42bfbd5a0efa982a9e4c6e62e34
+         * 
          * @param http HttpSecurityオブジェクト
          * @return SecurityFilterChainオブジェクト
          * @throws Exception 例外全般
@@ -50,12 +54,8 @@ public class SecurityConfig {
         }
 
         /**
-         * ログインユーザー情報を設定する
-         *
-         * ユーザ名user、パスワードpasswordでログインできるようになる。
-         *
-         * ※パスワードはハッシュ化せずにそのまま設定
-         *
+         * ログインユーザー情報を設定する ユーザ名user、パスワードpasswordでログインできるようになる。 ※パスワードはハッシュ化せずにそのまま設定
+         * 
          * @return ログインユーザー情報
          */
         @Bean
