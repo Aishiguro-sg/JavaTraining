@@ -27,9 +27,10 @@ public class ChargeController {
     }
 
     @GetMapping("/search")
-    public String showSearchCondition(Model model) {
+    public String showSearchCondition(Model model, @PathVariable int id) {
         var chargeSearchCondition = new ChargeSearchCondition();
         model.addAttribute("chargeSearchCondition", chargeSearchCondition);
+        model.addAttribute("chargeId", id);
         return "charge_search_condition";
     }
 
