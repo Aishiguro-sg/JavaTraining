@@ -62,20 +62,41 @@
         <!--*/-->
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-10">
-                <input class="btn btn-primary" type="submit" value="決定" />
-                <a class="btn btn-link" th:href="@{/charge/search}">キャンセル</a>
-                <!--*編集画面の削除場所さわってます/-->
-
-                <a href="http://localhost:8080/member/search" onclick="return confirm('削除しますか?')">
-                    <button href="#" input type="button" style=background:rgb(241,88,88);color:rgb(255,255,255);
-                        value=削除 id="coladd" class="btn btn-sm" onclick="coldel (this)">削除</button>
+            <div class="col-sm">
+                <button type="submit" class="btn btn-primary">決定</button>
+                <a class="btn btn-link" th:href="@{/member/search}">キャンセル</a>
+            </div>
+            <!--*編集画面の削除場所さわってます/-->
+            <div class="col-sm-auto">
+                <a id="delete" class="btn btn-sm btn-danger" th:href="@{/charge/delete/{id}(id=${chargeId})}">削除</a>
                 </a>
 
                 <!--*さわってます/-->
             </div>
         </div>
     </form>
+    <script th:inline="javascript">
+        /**
+            削除ボタンがクリックされた時の制御
+        */
+        // HTMLが読込まれたら実行する関数を登録
+        document.addEventListener("DOMContentLoaded", (e) => {
+            // idがdeleteのHTML要素(削除ボタン)を取得
+            const deleteBtn = document.getElementById("delete");
+            // 取得した要素がクリックされた時に実行される関数を登録。
+            deleteBtn.addEventListener("click", (e) => {
+                // 確認画面を表示
+                let result = confirm("id:[[${chargeId}]]を削除してもよろしいですか？");
+                if (!result) {
+                    // もし、キャンセルが押されたら、クリックされた要素動作を取りやめる
+                    e.preventDefault();
+                }
+                return result;
+            });
+        });
+    </script>
+    <!--*　　　　　　　　　　　　　　/-->
+    <!--*　　　　　　　　　　　　　　/-->
 </div>
 
 </html>

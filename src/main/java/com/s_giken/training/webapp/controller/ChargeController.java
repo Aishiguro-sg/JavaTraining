@@ -50,6 +50,7 @@ public class ChargeController {
         if (!charge.isPresent()) {
             throw new NotFoundException("");
         }
+        model.addAttribute("chargeId", id);
         model.addAttribute("charge", charge);
         return "charge_edit";// 編集用
     }
