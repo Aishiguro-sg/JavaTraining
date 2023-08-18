@@ -84,38 +84,38 @@
             <div class="col-sm">
                 <button type="submit" class="btn btn-primary">決定</button>
                 <a class="btn btn-link" th:href="@{/member/search}">キャンセル</a>
-
             </div>
-            <!--*編集画面の削除場所　　　　　/-->
-
+            <!--*編集画面の削除場所さわってます/-->
             <div class="col-sm-auto">
-                <a id="delete" input type="submit" class="btn btn-sm btn-danger"
-                    th:href="@{/member/delete/{id}(id=${memberId})}">削除</a>
+                <a id="delete" th:if="${memberId != null}" class="btn btn-sm btn-danger"
+                    th:href="@{/member/delete/{id}(id=${member})}">削除</a>
             </div>
+            <!--*さわってます/-->
         </div>
-    </form>
-    <script th:inline="javascript">
-        /**
-            削除ボタンがクリックされた時の制御
-        */
-        // HTMLが読込まれたら実行する関数を登録
-        document.addEventListener("DOMContentLoaded", (e) => {
-            // idがdeleteのHTML要素(削除ボタン)を取得
-            const deleteBtn = document.getElementById("delete");
-            // 取得した要素がクリックされた時に実行される関数を登録。
-            deleteBtn.addEventListener("click", (e) => {
-                // 確認画面を表示
-                let result = confirm("id:[[${memberId}]]を削除してもよろしいですか？");
-                if (!result) {
-                    // もし、キャンセルが押されたら、クリックされた要素動作を取りやめる
-                    e.preventDefault();
-                }
-                return result;
-            });
+</div>
+</form>
+<script th:inline="javascript">
+    /**
+        削除ボタンがクリックされた時の制御
+    */
+    // HTMLが読込まれたら実行する関数を登録
+    document.addEventListener("DOMContentLoaded", (e) => {
+        // idがdeleteのHTML要素(削除ボタン)を取得
+        const deleteBtn = document.getElementById("delete");
+        // 取得した要素がクリックされた時に実行される関数を登録。
+        deleteBtn.addEventListener("click", (e) => {
+            // 確認画面を表示
+            let result = confirm("id:[[${memberId}]]を削除してもよろしいですか？");
+            if (!result) {
+                // もし、キャンセルが押されたら、クリックされた要素動作を取りやめる
+                e.preventDefault();
+            }
+            return result;
         });
-    </script>
-    <!--*　　　　　　　　　　　　　　/-->
-    <!--*　　　　　　　　　　　　　　/-->
+    });
+</script>
+<!--*　　　　　　　　　　　　　　/-->
+<!--*　　　　　　　　　　　　　　/-->
 </div>
 
 </html>

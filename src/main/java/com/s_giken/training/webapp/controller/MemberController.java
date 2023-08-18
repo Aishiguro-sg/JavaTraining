@@ -93,6 +93,7 @@ public class MemberController {
 	public String addMember(Model model) {
 		var member = new Member();
 		model.addAttribute("member", member);
+		model.addAttribute("memberId", null);
 		return "member_edit";
 	}
 
