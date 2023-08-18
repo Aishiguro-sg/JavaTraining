@@ -81,12 +81,9 @@ public class ChargeController {
     @GetMapping("/delete/{id}")
     public String deleteCharge(
             @PathVariable int id,
-            // 通知
             RedirectAttributes redirectAttributes) {
-        // 削除通知
         chargeService.deleteById(id);
         redirectAttributes.addFlashAttribute("message", "削除しました。");
         return "redirect:/charge/search";
     }
-
 }
