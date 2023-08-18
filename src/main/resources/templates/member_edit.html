@@ -87,7 +87,7 @@
             </div>
             <!--*編集画面の削除場所さわってます/-->
             <div class="col-sm-auto">
-                <a id="delete" th:if="${memberId != null}" class="btn btn-sm btn-danger"
+                <a id="delete" th:if="!${memberId == null}" class="btn btn-sm btn-danger"
                     th:href="@{/member/delete/{id}(id=${member})}">削除</a>
             </div>
             <!--*さわってます/-->
