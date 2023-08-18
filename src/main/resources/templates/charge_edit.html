@@ -64,11 +64,12 @@
             <label class="col-sm-2 col-form-label"></label>
             <div class="col-sm">
                 <button type="submit" class="btn btn-primary">決定</button>
-                <a class="btn btn-link" th:href="@{/member/search}">キャンセル</a>
+                <a class="btn btn-link" th:href="@{/charge/search}">キャンセル</a>
             </div>
             <!--*編集画面の削除場所さわってます/-->
             <div class="col-sm-auto">
-                <a id="delete" class="btn btn-sm btn-danger" th:href="@{/charge/delete/{id}(id=${chargeId})}">削除</a>
+                <a id="delete" th:if="${chargeId == 0}" class="btn btn-sm btn-danger"
+                    th:href="@{/charge/delete/{id}(id=${chargeId})}">削除</a>
             </div>
             <!--*さわってます/-->
         </div>
