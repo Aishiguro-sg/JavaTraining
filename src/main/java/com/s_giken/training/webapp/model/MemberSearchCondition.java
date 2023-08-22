@@ -11,5 +11,10 @@ public class MemberSearchCondition {
     // メールアドレス検索用
     private String mail;
     private String name;
+
     // 氏名検索用メンバ変数を用意
+
+    private String sortColName = "";
+    private String sortOrder = "";
+    // 最初にこの値を入れる 初期値してるだけ
 }

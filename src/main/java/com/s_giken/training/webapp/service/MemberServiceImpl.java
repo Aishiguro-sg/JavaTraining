@@ -3,6 +3,8 @@ package com.s_giken.training.webapp.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.s_giken.training.webapp.model.Member;
@@ -52,15 +54,33 @@ public class MemberServiceImpl implements MemberService {
      * @param memberSearchCondition 加入者検索条件
      * @return 条件に一致した加入者情報
      */
-    @Override
+    @Override // メソッド
     public List<Member> findByConditions(MemberSearchCondition memberSearchCondition) {
+
+        String colname = memberSearchCondition.getSortColName();
+        String order = memberSearchCondition.getSortOrder();
+        Direction direction = null;
+        if (order.equals("asc")) {
+            direction = Direction.ASC;
+        } else {
+            direction = Direction.DESC;
+        }
+        Sort sort = Sort.by(direction, colname);
         return memberRepository.findByMailLikeAndNameLike(
                 "%" + memberSearchCondition.getMail() + "%",
-                "%" + memberSearchCondition.getName() + "%");
+                "%" + memberSearchCondition.getName() + "%", sort);
     }
-
-    // @Override
-    // public void delete(Member entity);
+    // MemberSearchCondition の private String choice●●● = "true"; …審議文
+    // ローカル変数 privateとかの修飾子は付かない
+    /**
+     * List<Member> 変数(検索結果) = 選択条件に該当した値 ; if(条件式){処理文; }elese{処理文; }
+     **/
+    /**
+     * return memberRepository.findByMailLikeAndNameLike( "%" + memberSearchCondition.getMail() +
+     * "%", "%" + memberSearchCondition.getName() + "%");
+     **/
+    // boolean isAscending(); //昇順
+    // boolean isDescending(); //降順
 
     /**
      * 加入者を登録する

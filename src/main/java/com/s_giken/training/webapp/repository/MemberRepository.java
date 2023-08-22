@@ -1,11 +1,10 @@
 package com.s_giken.training.webapp.repository;
 
 import java.util.List;
-
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.s_giken.training.webapp.model.Member;
-//import org.springframework.data.jpa.repository.Query;
+// import org.springframework.data.jpa.repository.Query;
 
 public interface MemberRepository extends JpaRepository<Member, Integer> {
     // SprintBootでは、予め用意されているのリポジトリアクセス用のメソッド以外のメソッドを
@@ -20,7 +19,13 @@ public interface MemberRepository extends JpaRepository<Member, Integer> {
     // Long count();
     // void delete(T entity);
     // boolean exists(ID primaryKey);
-    public List<Member> findByMailLikeAndNameLike(String meil, String name);
+    // public List<Member> findByMailLike(String name);
+    // public List<Member> findByMailLike(String name,Sort sort);
+
+    public List<Member> findByMailLikeAndNameLike(String mail, String name);
+
+    public List<Member> findByMailLikeAndNameLike(String mail, String name, Sort sort);
+    // public List<Member> findByMailLikeAndNameLike(String meil, String name, Sort sort);
 }
 
-//public interface ListMemberRepository<Member,ID>{public void delete(Member entity);}
+// public interface ListMemberRepository<Member,ID>{public void delete(Member entity);}

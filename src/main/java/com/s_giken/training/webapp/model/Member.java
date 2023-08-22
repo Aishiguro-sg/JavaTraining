@@ -28,7 +28,7 @@ public class Member {
     @Id // 主キーを設定
     @GeneratedValue(strategy = GenerationType.AUTO) // 主キーの採番方法を指定
     @Column(name = "member_id") // 対応する列名
-    private int memberId;
+    private int memberId; // ここにSort.by(DirectionASC,"memberId")
 
     @Column(name = "mail") // 対応する列名
     @NotNull // null不可
