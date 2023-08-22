@@ -12,6 +12,30 @@
                 <input class="form-control" type="text" th:field="*{name}" />
             </div>
         </div>
+
+        <!--/* 表示順を1設置 */-->
+        <div class="mb-3 row">
+
+            <label class="col-sm-2 col-form-label">表示順</label>
+            <div class="col-sm-auto">
+                <select class="form-control" th:field="*{sortColName}">
+                    <option value="chargeId">料金ID</option>
+                    <option value="name">料金名</option>
+                    <option value="amount">月額料金</option>
+                    <option value="startDate">運用開始日</option>
+                    <option value="endDate">運用終了日</option>
+                </select>
+            </div>
+            <!--/*2設置 */-->
+            <div class="col-sm-auto">
+                <select class="form-control" th:field="*{sortOrder}">
+                    <option value="asc">昇順</option>
+                    <option value="desc">降順</option>
+                </select>
+                <!--       -->
+            </div>
+
+        </div>
         <!--/* ここにテキストフォームを設置 */-->
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label"></label>
