@@ -1,10 +1,12 @@
 package com.s_giken.training.webapp.model;
 
 import java.sql.Timestamp;
-import java.util.Date;
+import java.time.LocalDate;
+// import java.util.Date;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+// import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
@@ -41,13 +43,14 @@ public class Charge {
     private int amount;
 
     @Column(name = "start_date") // 運用開始日
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
     @NotNull
-    private Date startDate;
+    private LocalDate startDate;
+    // private LocalDate localDate;
 
     @Column(name = "end_date") // 運用終了日
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date endDate;
+    private LocalDate endDate;
 
     @CreatedDate
     private Timestamp createdDate; // レコード作成日
