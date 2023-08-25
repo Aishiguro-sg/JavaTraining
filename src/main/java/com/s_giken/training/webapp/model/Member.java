@@ -1,8 +1,8 @@
 package com.s_giken.training.webapp.model;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
-// import java.util.Date;
+// import java.time.LocalDate;
+import java.util.Date;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -49,11 +49,13 @@ public class Member {
     @Column(name = "start_date") // 対応する列名
     @DateTimeFormat(pattern = "yyyy-MM-dd") // 日付のフォーマットを指定
     @NotNull // null不可
-    private LocalDate startDate;
+    private Date startDate;
+    // private LocalDate startDate;
 
     @Column(name = "end_date") // 対応する列名
     @DateTimeFormat(pattern = "yyyy-MM-dd") // 日付のフォーマットを指定
-    private LocalDate endDate;
+    private Date endDate;
+    // private LocalDate endDate;
 
     @Column(name = "payment_method") // 対応する列名
     @NotNull // null不可

@@ -21,8 +21,8 @@
                 </td>
                 <td th:text="${row.name}"></td>
                 <td th:text="${row.amount}"></td>
-                <td th:text="${row.startDate}"></td>
-                <td th:text="${row.endDate}"></td>
+                <td th:text="${#dates.format(row.startDate,'yyyy/MM/dd')}"></td>
+                <td th:text="${#dates.format(row.endDate,'yyyy/MM/dd')}"></td>
             </tr>
             <tr th:if="${#lists.isEmpty(result)}">
                 <td colspan="7">
@@ -31,6 +31,10 @@
             </tr>
         </tbody>
     </table>
+    <div class="text-right">
+        <a class="btn btn-outline-info" th:href="@{/charge/search}">戻る</a>
+    </div>
+    <!--え-->
 </div>
 
 </html>

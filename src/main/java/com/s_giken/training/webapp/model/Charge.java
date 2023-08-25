@@ -1,12 +1,13 @@
 package com.s_giken.training.webapp.model;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
-// import java.util.Date;
+// import java.time.LocalDate;
+import java.util.Date;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 // import com.fasterxml.jackson.annotation.JsonFormat;
+// import java.util.Calendar;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
@@ -21,7 +22,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// import java.util.Calendar;
 @Entity
 @Table(name = "T_CHARGE") // 対応するデータベーステーブル名
 @Data // メンバー変数に対するゲッター・セッターを自動生成
@@ -43,14 +43,14 @@ public class Charge {
     private int amount;
 
     @Column(name = "start_date") // 運用開始日
-    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull
-    private LocalDate startDate;
+    private Date startDate;
     // private LocalDate localDate;
 
     @Column(name = "end_date") // 運用終了日
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate endDate;
+    private Date endDate;
 
     @CreatedDate
     private Timestamp createdDate; // レコード作成日
