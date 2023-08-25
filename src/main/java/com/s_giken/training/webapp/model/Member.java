@@ -6,10 +6,12 @@ import java.util.Date;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,6 +23,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity // エンティティクラスであることを示す
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "T_MEMBER") // 対応するデータベーステーブル名
 @Data // メンバー変数に対するゲッター・セッターを自動生成
 @NoArgsConstructor // 引数のないコンストラクタを自動生成

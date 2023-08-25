@@ -76,7 +76,7 @@ public class MemberController {
 			Model model) {
 		var member = memberService.findById(id);
 		if (!member.isPresent()) {
-			throw new NotFoundException("");
+			throw new NotFoundException(String.format("指定したmemberId(%d)の加入者情報が存在しません。", id));
 		}
 		model.addAttribute("memberId", id);
 		model.addAttribute("member", member);
@@ -129,6 +129,11 @@ public class MemberController {
 	public String deleteMember(
 			@PathVariable int id,
 			RedirectAttributes redirectAttributes) {
+		var member = memberService.findById(id);
+		if (!member.isPresent()) {
+			throw new NotFoundException(String.format("指定したmemberId(%d)の加入者情報が存在しません。", id));
+		}
+
 		memberService.deleteById(id);
 		/* メッセージを保存している */
 		redirectAttributes.addFlashAttribute("message", "削除しました。");
