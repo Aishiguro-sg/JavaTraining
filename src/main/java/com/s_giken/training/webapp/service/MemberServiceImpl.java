@@ -88,6 +88,7 @@ public class MemberServiceImpl implements MemberService {
      * @param member 登録する加入者情報
      * @return 登録した加入者情報
      */
+    // <S extends T> S save(S entity); Tha ジェネリック型
     @Override
     public void save(Member member) {
         memberRepository.save(member);

@@ -13,12 +13,12 @@ public interface MemberRepository extends JpaRepository<Member, Integer> {
     //
     // 予め用意されているメソッド
     // <S extends T> S save(S entity);
-    // T findOne(ID primaryKey); 条件をみたす最初のデータを取得する
+    // T findOne(ID primaryKey); IDに一致するものを返す 条件をみたす最初のデータを取得する
     // Iterable<T> findAll(); findAll (Specification) に検索条件を渡します。
     // 独自の条件を生成する関数を用意し、呼び出し元のサービスクラスから findAll () の引数に指定すると動的条件の付与が可能です。
-    // Long count();
-    // void delete(T entity);
-    // boolean exists(ID primaryKey);
+    // Long count(); レコード数を取得する
+    // void delete(T entity); データ削除
+    // boolean exists(ID primaryKey); IDが存在するかをtrue/falseで返す
     // public List<Member> findByMailLike(String name);
     // public List<Member> findByMailLike(String name,Sort sort);
 

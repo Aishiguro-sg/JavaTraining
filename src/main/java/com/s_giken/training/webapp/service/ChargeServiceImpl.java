@@ -28,7 +28,7 @@ public class ChargeServiceImpl implements ChargeService {
         return chargeRepository.findById(chargeId);
     }
 
-    @Override // メソッド
+    @Override // Sort 並び替え ローカルメソッド
     public List<Charge> findByConditions(ChargeSearchCondition chargeSearchCondition) {
 
         String colname = chargeSearchCondition.getSortColName();
